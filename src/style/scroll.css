@@ -1,0 +1,11 @@
+.scroll {
+    overflow-y: scroll;
+    border: 1px solid black;
+    height: 500px;
+
+}
+
+/* 
+same as jsx:
+style={{overflowY: 'scroll', border:'1px solid black', height:'500px'}}
+*/
