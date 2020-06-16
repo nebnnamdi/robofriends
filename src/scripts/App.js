@@ -1,4 +1,5 @@
 import React from 'react';
+import {robots} from './robots';
 import ErrorBoundary from './ErrorBoundary';
 import {CardList, SearchField, Scroll, SearchType} from './Components';
 import '../style/App.css';
@@ -7,17 +8,18 @@ class App extends React.Component {
     constructor(){
         super()
         this.state = {
-            robots: [],
+            robots,
             searchvalue:'',
             searchtype:''
         }
     }
-
+/*
     componentDidMount(){
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(response=> response.json())
         .then(users=> this.setState({robots:users}))
     }
+*/
 
     onSearchChange =(event)=> {
         this.setState({searchvalue: event.target.value});
@@ -37,9 +39,9 @@ class App extends React.Component {
             const filterRobots = robots.filter(
                 (robot)=>{
                 if(searchtype === 'name'){
-                    return robot.name.toLowerCase().includes(searchvalue)
+                    return robot.name.toLowerCase().includes(searchvalue.toLowerCase())
                 } else if(searchtype === 'email'){
-                    return robot.email.toLowerCase().includes(searchvalue)
+                    return robot.email.toLowerCase().includes(searchvalue.toLowerCase())
                 } return robot;         
             }
             )
